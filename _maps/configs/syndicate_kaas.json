@@ -7,7 +7,7 @@
 		"ACLF"
 	],
 	"map_name": "KAAS-Class Armed Cruiser",
-	"description": "Крейсер Карательного Отряда Триглава Синдикат - О.С.Т.О.В.",
+	"description": "Крейсер Карательного Отряда Триглава Синдикат - Группы специального назначения 'Кровавые Жнецы'.",
 	"tags": [
 		"Инженерный",
 		"Боевой",
@@ -15,29 +15,29 @@
 		"Медицинский"
 	],
 	"map_short_name": "Kaas-class",
-	"map_path": "_maps/shuttles/shiptest/syndicate_kaas.dmm",
+	"map_path": "_maps/shuttles/syndicate/syndicate_kaas.dmm",
 	"limit": 1,
 	"job_slots": {
 		"Commander": {
-			"outfit": "/datum/outfit/job/captain/syndicate/ostov",
+			"outfit": "/datum/outfit/job/captain/syndicate/reaper",
 			"officer": true,
 			"slots": 1
 		},
 		"Lieutenant Commander": {
-			"outfit": "/datum/outfit/job/hos/syndicate/ostov",
+			"outfit": "/datum/outfit/job/hos/syndicate/reaper",
 			"officer": true,
 			"slots": 1
 		},
 		"Lieutenant": {
-			"outfit": "/datum/outfit/job/security/syndicate/ostov",
+			"outfit": "/datum/outfit/job/security/syndicate/reaper",
 			"slots": 4
 		},
 		"Lieutenant Junior Grade Medic": {
-			"outfit": "/datum/outfit/job/brig_phys/syndicate/ostov",
+			"outfit": "/datum/outfit/job/brig_phys/syndicate/reaper",
 			"slots": 1
 		},
 		"Lieutenant Junior Grade Engineer": {
-			"outfit": "/datum/outfit/job/engineer/syndicate/ostov",
+			"outfit": "/datum/outfit/job/engineer/syndicate/reaper",
 			"slots": 1
 		}
 	},

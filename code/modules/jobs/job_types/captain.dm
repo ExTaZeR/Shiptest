@@ -1,8 +1,6 @@
 /datum/job/captain
 	name = "Captain"
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD|DEADMIN_POSITION_SECURITY
-	total_positions = 1
-	spawn_positions = 1
 	minimal_player_age = 30
 	officer = TRUE
 	wiki_page = "Captain"
@@ -56,14 +54,23 @@
 
 	ears = /obj/item/radio/headset/nanotrasen/captain
 	uniform = /obj/item/clothing/under/rank/command/captain/nt
+	gloves = /obj/item/clothing/gloves/color/captain/nt
 	shoes = /obj/item/clothing/shoes/laceup
 	head = /obj/item/clothing/head/caphat/nt
+
+/datum/outfit/job/captain/nt/heron
+	name = "Captain (Nanotrasen)"
+
+	uniform = /obj/item/clothing/under/rank/centcom/officer
+	gloves = /obj/item/clothing/gloves/combat
+	head = /obj/item/clothing/head/centhat
+	suit = /obj/item/clothing/suit/armor/vest/bulletproof
 
 /datum/outfit/job/captain/pirate
 	name = "Captain (Pirate)"
 
 	ears = /obj/item/radio/headset/pirate/captain
-	uniform = /obj/item/clothing/under/costume/russian_officer
+	uniform = /obj/item/clothing/under/costume/pirate
 	shoes = /obj/item/clothing/shoes/jackboots
 	head = /obj/item/clothing/head/pirate/captain
 	suit = /obj/item/clothing/suit/pirate/captain
@@ -192,7 +199,7 @@
 	satchel = /obj/item/storage/backpack/satchel/
 	duffelbag = /obj/item/storage/backpack/duffelbag
 	courierbag = /obj/item/storage/backpack/messenger
-	backpack_contents = list(/obj/item/gun/ballistic/automatic/pistol/commander=1, /obj/item/clothing/accessory/medal/gold/captain=1, /obj/item/spacecash/bundle/c10000=1)
+	backpack_contents = list(/obj/item/clothing/accessory/medal/gold/captain=1, /obj/item/spacecash/bundle/c10000=1)
 
 /datum/outfit/job/captain/inteq
 	name = "IRMG Vanguard (Inteq)"
@@ -212,7 +219,7 @@
 	accessory = null
 
 	courierbag = /obj/item/storage/backpack/messenger/inteq
-	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/ammo_box/magazine/co9mm=1, /obj/item/pda/captain)
+	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/pda/captain)
 
 /datum/outfit/job/captain/inteq/naked
 	name = "IRMG Vanguard (Inteq) (Naked)"
@@ -223,6 +230,17 @@
 	suit = null
 	gloves = null
 	suit_store = null
+/datum/outfit/job/captain/inteq/naked/cardacces
+	name = "Vanguard (InteQ)"
+	id = /obj/item/card/id/inteq/vanguard
+
+/datum/outfit/job/captain/inteq/naked/cardacces/post_equip(mob/living/carbon/human/H)
+	H.faction |= list("PlayerInteQ")
+
+	var/obj/item/card/id/I = H.wear_id
+	I.registered_name = pick(GLOB.commando_names)
+	I.access = get_all_accesses()+get_inteq_acces()
+	I.update_label()
 
 /datum/outfit/job/captain/aipirate
 	name = "Nodesman (Command)"
@@ -272,8 +290,8 @@
 	duffelbag = /obj/item/storage/backpack/duffelbag/captain
 	courierbag = /obj/item/storage/backpack/messenger/com
 
-/datum/outfit/job/captain/syndicate/ostov
-	name = "Commander (O.S.T.O.V)"
+/datum/outfit/job/captain/syndicate/reaper
+	name = "Commander (Blood Reaper)"
 
 	uniform = /obj/item/clothing/under/syndicate/aclf
 	gloves = /obj/item/clothing/gloves/krav_maga/combatglovesplus

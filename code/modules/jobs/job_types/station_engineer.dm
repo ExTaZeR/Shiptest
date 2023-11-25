@@ -1,7 +1,5 @@
 /datum/job/engineer
 	name = "Station Engineer"
-	total_positions = 5
-	spawn_positions = 5
 	wiki_page = "Station_Engineer" //WS Edit - Wikilinks/Warning
 
 	outfit = /datum/outfit/job/engineer
@@ -70,6 +68,18 @@
 	head = /obj/item/clothing/head/soft/inteq
 	shoes = /obj/item/clothing/shoes/combat
 
+/datum/outfit/job/engineer/inteq/cardacces
+	name = "Artificer (InteQ)"
+	ears = null
+	id = /obj/item/card/id/inteq/afr
+
+/datum/outfit/job/engineer/inteq/cardacces/post_equip(mob/living/carbon/human/H)
+	H.faction |= list("PlayerInteQ")
+
+	var/obj/item/card/id/I = H.wear_id
+	I.registered_name = pick(GLOB.commando_names)
+	I.access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_MECH_ENGINE,ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_TCOMSAT, ACCESS_MINERAL_STOREROOM, ACCESS_EVA, ACESS_INTEQ_GENERAL)
+	I.update_label()
 /datum/outfit/job/engineer/pirate
 	name = "Ship's Engineer (Pirate)"
 
@@ -99,6 +109,7 @@
 	name = "Station Engineer (GEC)"
 
 	uniform = /obj/item/clothing/under/syndicate/gec
+	ears = /obj/item/radio/headset/syndicate
 	suit = /obj/item/clothing/suit/toggle/hazard
 	head = /obj/item/clothing/head/hardhat
 	id = /obj/item/card/id/syndicate_command/crew_id
@@ -215,8 +226,8 @@
 	duffelbag = /obj/item/storage/backpack/duffelbag/engineering
 	courierbag = /obj/item/storage/backpack/messenger/engi
 
-/datum/outfit/job/engineer/syndicate/ostov
-	name = "Lieutenant Junior Grade Engineer (O.S.T.O.V.)"
+/datum/outfit/job/engineer/syndicate/reaper
+	name = "Lieutenant Junior Grade Engineer (Blood Reaper)"
 
 	uniform = /obj/item/clothing/under/syndicate/gec
 	accessory = null

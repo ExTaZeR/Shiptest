@@ -1,8 +1,6 @@
 /datum/job/hos
 	name = "Head of Security"
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD|DEADMIN_POSITION_SECURITY
-	total_positions = 1
-	spawn_positions = 1
 	minimal_player_age = 14
 	officer = TRUE
 	wiki_page = "Head_of_Security" //WS Edit - Wikilinks/Warning
@@ -40,10 +38,10 @@
 	gloves = /obj/item/clothing/gloves/color/black
 	head = /obj/item/clothing/head/HoS
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
-	suit_store = /obj/item/gun/energy/e_gun
+	suit_store = null
 	r_pocket = /obj/item/assembly/flash/handheld
 	l_pocket = /obj/item/restraints/handcuffs
-	backpack_contents = list(/obj/item/melee/baton/loaded=1)
+	backpack_contents = list(/obj/item/melee/classic_baton=1)
 
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel/sec
@@ -71,7 +69,7 @@
 	head = /obj/item/clothing/head/warden
 	suit = /obj/item/clothing/suit/armor/vest/syndie
 	id = /obj/item/card/id/syndicate_command/crew_id
-	backpack_contents = list(/obj/item/melee/baton/loaded=1, /obj/item/storage/box/survival/syndie=1)
+	backpack_contents = list(/obj/item/melee/classic_baton=1,/obj/item/storage/box/survival/syndie=1)
 
 /datum/outfit/job/hos/nanotrasen
 	name = "Head of Security (Nanotrasen)"
@@ -128,8 +126,8 @@
 	outfit = /datum/outfit/job/hos/roumain
 	mind_traits = null
 
-/datum/outfit/job/hos/syndicate/ostov
-	name = "Lieutenant Commander (O.S.T.O.V.)"
+/datum/outfit/job/hos/syndicate/reaper
+	name = "Lieutenant Commander (Blood Reaper)"
 
 	uniform = /obj/item/clothing/under/syndicate/aclf
 	head = /obj/item/clothing/head/HoS/beret/syndicate
@@ -160,4 +158,47 @@
 	I.registered_name = pick(GLOB.twinkle_names) + "-" + num2text(rand(8, 10)) // squidquest real
 	I.access |= list(ACCESS_SYNDICATE)
 	I.assignment = "Lieutenant Commander"
+	I.update_label()
+
+
+/datum/outfit/job/hos/inteq
+	name = "IRMG Enforcer class One (Inteq)"
+
+	ears = /obj/item/radio/headset/inteq/alt/captain
+	uniform = /obj/item/clothing/under/syndicate/inteq
+	head = /obj/item/clothing/head/beret/sec/hos/inteq
+	glasses = /obj/item/clothing/glasses/hud/security/sunglasses/inteq
+	mask = /obj/item/clothing/mask/gas/sechailer/inteq
+	belt = /obj/item/storage/belt/security/webbing/inteq
+	suit = /obj/item/clothing/suit/armor/hos/inteq
+	dcoat = /obj/item/clothing/suit/hooded/wintercoat/security/inteq
+	shoes = /obj/item/clothing/shoes/combat
+	gloves = /obj/item/clothing/gloves/combat
+	r_pocket = /obj/item/assembly/flash/handheld
+	l_pocket = /obj/item/restraints/handcuffs
+	accessory = null
+
+	courierbag = /obj/item/storage/backpack/messenger/inteq
+	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/ammo_box/magazine/co9mm=1, /obj/item/pda/captain)
+
+/datum/outfit/job/hos/inteq/naked
+	name = "IRMG Enforcer class One (Inteq) (Naked)"
+	head = null
+	mask = null
+	glasses = null
+	belt = null
+	suit = null
+	gloves = null
+	suit_store = null
+/datum/outfit/job/hos/inteq/naked/cardacces
+	name = "Enforcer class One (InteQ)"
+	ears = null
+	id = /obj/item/card/id/inteq/enfco
+
+/datum/outfit/job/hos/inteq/naked/cardacces/post_equip(mob/living/carbon/human/H)
+	H.faction |= list("PlayerInteQ")
+
+	var/obj/item/card/id/I = H.wear_id
+	I.registered_name = pick(GLOB.commando_names)
+	I.access = get_all_accesses()+get_inteq_acces()
 	I.update_label()

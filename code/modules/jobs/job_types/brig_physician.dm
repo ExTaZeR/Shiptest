@@ -1,7 +1,5 @@
 /datum/job/brig_phys
 	name = "Brig Physician"
-	total_positions = 1
-	spawn_positions = 1
 	minimal_player_age = 7
 	wiki_page = "Guide_to_Medicine" //WS Edit - Wikilinks/Warning
 
@@ -84,8 +82,8 @@
 	I.access |= list(ACCESS_SYNDICATE)
 	I.update_label()
 
-/datum/outfit/job/brig_phys/syndicate/ostov
-	name = "Lieutenant Junior Grade Medic (O.S.T.O.V.)"
+/datum/outfit/job/brig_phys/syndicate/reaper
+	name = "Lieutenant Junior Grade Medic (Blood Reaper)"
 
 	uniform = /obj/item/clothing/under/rank/medical/doctor/red
 	gloves = /obj/item/clothing/gloves/color/latex/nitrile/evil
